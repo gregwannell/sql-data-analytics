@@ -4,7 +4,7 @@ Ranking Analysis
 ===============================================================================
 Purpose:
     - To rank items (e.g., products, customers) based on performance or other metrics.
-    - To identify top performers or laggards.
+    - To identify top performers or bottom performers.
 
 SQL Functions Used:
     - Window Ranking Functions: RANK(), DENSE_RANK(), ROW_NUMBER(), TOP
@@ -12,7 +12,7 @@ SQL Functions Used:
 ===============================================================================
 */
 
--- Which 5 products Generating the Highest Revenue?
+-- Which 5 products generating the highest revenue?
 -- Simple Ranking
 SELECT TOP 5
     p.product_name,
@@ -23,7 +23,7 @@ LEFT JOIN gold.dim_products p
 GROUP BY p.product_name
 ORDER BY total_revenue DESC;
 
--- Complex but Flexibly Ranking Using Window Functions
+-- Complex but flexible ranking using Window Functions
 SELECT *
 FROM (
     SELECT
@@ -45,7 +45,7 @@ FROM gold.fact_sales f
 LEFT JOIN gold.dim_products p
     ON p.product_key = f.product_key
 GROUP BY p.product_name
-ORDER BY total_revenue;
+ORDER BY total_revenue; -- no specification so AESC
 
 -- Find the top 10 customers who have generated the highest revenue
 SELECT TOP 10
