@@ -4,6 +4,7 @@ Dimensions Exploration
 ===============================================================================
 Purpose:
     - To explore the structure of dimension tables.
+    - Indentify the granularity and unique values (or categories) in each dimenson - help recognise how the data might be grouped or segmented
 	
 SQL Functions Used:
     - DISTINCT
